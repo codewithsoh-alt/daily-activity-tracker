@@ -1,8 +1,7 @@
-/**
- * Centralized API Client for Daily Activity Tracker
- * Connects to Spring Boot backend at http://localhost:8080/api
- */
-const BASE_URL = 'http://localhost:8080/api';
+// Use relative '/api' when hosted on Render/production, or fallback to localhost during local file testing
+const BASE_URL = window.location.origin.startsWith('http') 
+  ? `${window.location.origin}/api` 
+  : 'http://localhost:8080/api';
 
 class ApiClient {
   static async request(endpoint, options = {}) {
