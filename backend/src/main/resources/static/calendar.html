@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar — Daily Activity Tracker</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <span class="badge bg-primary rounded-pill p-2">📅</span>
+        <span>Daily Activity Tracker</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+          <li class="nav-item"><a class="nav-link active" href="calendar.html">Calendar</a></li>
+          <li class="nav-item"><a class="nav-link" href="statistics.html">Statistics</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container my-4 flex-grow-1">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+      <div>
+        <h2 class="fw-bold mb-1">Calendar View</h2>
+        <p class="text-muted mb-0">Browse and inspect scheduled tasks by day.</p>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-outline-secondary" id="prev-month-btn">&larr; Prev</button>
+        <span class="fw-bold fs-5 px-2" id="current-month-label">September 2026</span>
+        <button class="btn btn-outline-secondary" id="next-month-btn">Next &rarr;</button>
+        <button class="btn btn-light border ms-2" id="today-btn">Today</button>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Calendar Grid Column -->
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-sm p-3">
+          <div class="calendar-grid mb-2">
+            <div class="calendar-header-day">Sun</div>
+            <div class="calendar-header-day">Mon</div>
+            <div class="calendar-header-day">Tue</div>
+            <div class="calendar-header-day">Wed</div>
+            <div class="calendar-header-day">Thu</div>
+            <div class="calendar-header-day">Fri</div>
+            <div class="calendar-header-day">Sat</div>
+          </div>
+          <div id="calendar-days" class="calendar-grid">
+            <!-- Dynamically rendered cells -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Selected Day Task Details Column -->
+      <div class="col-lg-4">
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+            <div>
+              <h6 class="fw-bold mb-0" id="selected-date-heading">Selected Day</h6>
+              <small class="text-muted" id="selected-date-subtitle">Pick a date to view activities</small>
+            </div>
+            <button class="btn btn-sm btn-outline-primary" id="add-to-date-btn">+ Add</button>
+          </div>
+          <div class="card-body p-3">
+            <div id="selected-day-activities" class="vstack gap-2">
+              <div class="text-center py-4 text-muted">Select a date on the calendar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-white border-top py-3 text-center text-muted small">
+    Daily Activity Tracker &bull; Local & Offline Ready
+  </footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/calendar.js"></script>
+</body>
+</html>

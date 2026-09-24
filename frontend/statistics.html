@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statistics — Daily Activity Tracker</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <span class="badge bg-primary rounded-pill p-2">📅</span>
+        <span>Daily Activity Tracker</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+          <li class="nav-item"><a class="nav-link" href="calendar.html">Calendar</a></li>
+          <li class="nav-item"><a class="nav-link active" href="statistics.html">Statistics</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container my-4 flex-grow-1">
+    <div class="mb-4">
+      <h2 class="fw-bold mb-1">Productivity & Analytics</h2>
+      <p class="text-muted mb-0">Overview of your activity performance and category distribution.</p>
+    </div>
+
+    <!-- Stats Scope Selector -->
+    <div class="btn-group mb-4" role="group" aria-label="Scope Selector">
+      <button type="button" class="btn btn-outline-primary active" id="btn-scope-today">Today</button>
+      <button type="button" class="btn btn-outline-primary" id="btn-scope-week">This Week</button>
+      <button type="button" class="btn btn-outline-primary" id="btn-scope-overall">All Time</button>
+    </div>
+
+    <!-- Metric Summary Cards -->
+    <div class="row g-3 mb-4">
+      <div class="col-sm-6 col-lg-3">
+        <div class="stat-card p-3 border-start border-4 border-primary">
+          <div class="stat-label">Total Activities</div>
+          <div class="stat-value text-primary mt-1" id="stat-total">0</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="stat-card p-3 border-start border-4 border-success">
+          <div class="stat-label">Completed</div>
+          <div class="stat-value text-success mt-1" id="stat-completed">0</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="stat-card p-3 border-start border-4 border-warning">
+          <div class="stat-label">Pending</div>
+          <div class="stat-value text-warning mt-1" id="stat-pending">0</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="stat-card p-3 border-start border-4 border-info">
+          <div class="stat-label">Success Rate</div>
+          <div class="stat-value text-info mt-1" id="stat-rate">0%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Breakdown and Distribution -->
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="card border-0 shadow-sm p-4">
+          <h5 class="fw-bold mb-3">Activities by Category</h5>
+          <div id="category-distribution-list" class="vstack gap-3">
+            <div class="text-center py-4 text-muted">Calculating category distribution...</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="card border-0 shadow-sm p-4">
+          <h5 class="fw-bold mb-3">Priority Breakdown</h5>
+          <div id="priority-distribution-list" class="vstack gap-3">
+            <div class="text-center py-4 text-muted">Calculating priority distribution...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-white border-top py-3 text-center text-muted small">
+    Daily Activity Tracker &bull; Local & Offline Ready
+  </footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/statistics.js"></script>
+</body>
+</html>
